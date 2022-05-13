@@ -1,0 +1,21 @@
+.authorize {
+  text-align: center;
+  .authorize_text {
+    font-size: 38rpx;
+    font-weight: 700;
+    font-family: PingFangSC-Regular, PingFang SC;
+    padding: 160rpx 0;
+  }
+  .authorize_button {
+    background: rgb(71, 121, 230);
+    width: 600rpx;
+    height: 100rpx;
+    margin: 0 auto;
+    border-radius: 50rpx;
+    font-size: 28rpx;
+    color: #fff;
+    line-height: 100rpx;
+    font-weight: 500;
+    font-family: PingFangSC-Regular, PingFang SC;
+  }
+}

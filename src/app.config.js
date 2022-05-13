@@ -1,7 +1,8 @@
 export default defineAppConfig({
   pages: [
     'pages/my/my',
-    'pages/index/index'
+    'pages/index/index',
+    'pages/authorize/authorize'
   ],
   window: {
     backgroundTextStyle: 'light',
