@@ -2,7 +2,7 @@
   "miniprogramRoot": "./dist",
   "projectname": "utilsApp",
   "description": "工具集小程序",
-  "appid": "touristappid",
+  "appid": "wx94fb36e3a570b221",
   "setting": {
     "urlCheck": true,
     "es6": false,

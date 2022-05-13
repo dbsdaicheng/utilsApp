@@ -1,5 +1,7 @@
+import path from 'path';
+
 const config = {
-  projectName: 'utilsApp',
+  projectName: '凌云轩榭小程序',
   date: '2022-5-13',
   designWidth: 750,
   deviceRatio: {
@@ -8,7 +10,12 @@ const config = {
     828: 1.81 / 2
   },
   sourceRoot: 'src',
-  outputRoot: 'dist',
+  outputRoot: `dist/${process.env.NODE_ENV}/${process.env.TARO_ENV}`,
+  alias: {
+    '@/components': path.resolve(__dirname, '..', 'src/components'),
+    '@/utils': path.resolve(__dirname, '..', 'src/utils'),
+    '@/apis': path.resolve(__dirname, '..', 'src/apis'),
+  },
   plugins: [],
   defineConstants: {
   },
@@ -65,6 +72,9 @@ const config = {
 module.exports = function (merge) {
   if (process.env.NODE_ENV === 'development') {
     return merge({}, config, require('./dev'))
+  }
+  if (process.env.NODE_ENV === 'rtest') {
+    return merge({}, config, require('./test'))
   }
   return merge({}, config, require('./prod'))
 }
