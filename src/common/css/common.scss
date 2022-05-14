@@ -1,0 +1,30 @@
+.two-overflow {
+  overflow:hidden;
+  text-overflow:ellipsis;
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2;
+}
+
+.one-overflow {
+  overflow:hidden;//超出的隐藏
+  text-overflow:ellipsis;//省略号
+  white-space:nowrap;//强制一行显示
+}
+
+view{   // 以盒模型显示
+  box-sizing:border-box;
+}
+
+page {
+  height: calc(100vh - var(--window-top) - 100rpx);
+  background-color: #F6F6F6;
+}
+
+// 解决隐藏ScrollView的滚动条
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+  }
+  
