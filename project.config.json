@@ -1,6 +1,6 @@
 {
   "miniprogramRoot": "dist/",
-  "projectname": "utilsApp",
+  "projectname": "",
   "description": "工具集小程序",
   "appid": "wx94fb36e3a570b221",
   "setting": {

@@ -1,4 +1,3 @@
-import { Component } from 'react';
 import 'taro-ui/dist/style/index.scss';
 import './app.scss';
 import '../src/common/css/common.scss';
@@ -10,4 +9,4 @@ const App = (props) => {
   )
 }
 
-export default App
+export default App;

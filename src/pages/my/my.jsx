@@ -1,21 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Taro from '@tarojs/taro';
-import { View } from '@tarojs/components';
+import { AtModal } from "taro-ui"
+import { View, Image } from '@tarojs/components';
 import styles from './index.module.scss';
 
-
 const My = () => {
+
+  const [userInfo] = useState(Taro.getStorageSync("userInfo"));
+  const [code] = useState(Taro.getStorageSync("uctoken"));
+  const [isOpened, setIsOpened] = useState(false);
   const login = () => {
     Taro.navigateTo({
       url: '/pages/authorize/authorize'
     })
   }
+
+  const loginout = () => {
+    setIsOpened(true);
+  }
+  const handleConfirm = () => {
+    Taro.removeStorageSync("userInfo");
+    Taro.removeStorageSync("uctoken");
+    Taro.reLaunch({url: '/pages/index/index'});
+  }
+  const handleCancel = () => {
+    setIsOpened(false);
+  }
+
   return (
     <View className={ styles.my }>
       <View className={ styles.my_header }>
-        <View className={ styles.my_avatar }></View>
-        <View className={ styles.login } onClick={login}>请点击授权登录</View>
-        <View className={ styles.my_header_content }>
+        <View className={ styles.my_avatar } ><Image src={userInfo.avatarUrl}/></View>
+        <View className={ styles.login } onClick={login}>{code ? userInfo.nickName : "请点击授权登录"}</View>
+        <View className={ styles.setting }><View className="icon iconfont icon-setting-fill"></View></View>
+      </View>
+      <View className={ styles.my_header_content }>
           <View>
             <View>收藏</View>
             <View>0</View>
@@ -29,7 +48,6 @@ const My = () => {
             <View>0</View>
           </View>
         </View>
-      </View>
       <View className={ styles.my_content }>
         <View className={ styles.my_content_title }>推荐服务</View>
         <View className={ styles.my_content_list}>
@@ -57,8 +75,18 @@ const My = () => {
         </View>
       </View>
       <View className={ styles.loginout}>
-        <View className={ styles.loginout_button }>退出登录</View>
+        <View className={ styles.loginout_button } onClick={loginout}>退出登录</View>
       </View>
+      <AtModal
+        isOpened={isOpened}
+        title='提示信息'
+        cancelText='取消'
+        confirmText='确认'
+        onClose={ handleCancel }
+        onCancel={ handleCancel }
+        onConfirm={ handleConfirm }
+        content='您确定要退出登录吗？'
+      />
     </View>
   )
 }

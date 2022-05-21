@@ -75,10 +75,10 @@ const config = {
 }
 
 module.exports = function (merge) {
-  if (process.env.NODE_ENV === 'development') {
+  if (process.env.NODE_ENV === 'dev') {
     return merge({}, config, require('./dev'))
   }
-  if (process.env.NODE_ENV === 'rtest') {
+  if (process.env.NODE_ENV === 'test') {
     return merge({}, config, require('./test'))
   }
   return merge({}, config, require('./prod'))
