@@ -11,9 +11,11 @@ const My = () => {
   const [isOpened, setIsOpened] = useState(false);
 
   const login = () => {
-    Taro.navigateTo({
-      url: '/pages/authorize/authorize'
-    })
+    if (!code) {
+      Taro.navigateTo({
+        url: '/pages/authorize/authorize'
+      })
+    }
   }
 
   const loginout = () => {

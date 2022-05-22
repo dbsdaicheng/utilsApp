@@ -106,5 +106,15 @@ const navData = [
   }
 ]
 
+const titleList = [
+  {name: "小程序"},
+  {name: "博客"},
+  {name: "前端"},
+  {name: "后端"},
+  {name: "设计"},
+  {name: "算法"},
+  {name: "大数据"},
+]
 
-export default navData;
+
+export { navData, titleList};

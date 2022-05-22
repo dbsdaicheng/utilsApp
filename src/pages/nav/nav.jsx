@@ -1,20 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './index.module.scss';
 import { View, Image } from '@tarojs/components';
 import classnames from 'classnames';
-import navData from './jumpLink.js';
+import { navData, titleList } from './jumpLink.js';
 
 const Nav = () => {
+
+  const [current, setCurrent] = useState(0);
+
   return (
     <View className={ styles.nav }>
       <View className={ styles.tag }>
-        <View className={ classnames(styles.tag_item, styles.active)}>全部</View>
-        <View className={ styles.tag_item }>前端</View>
-        <View className={ styles.tag_item }>后端</View>
-        <View className={ styles.tag_item }>设计</View>
-        <View className={ styles.tag_item }>算法</View>
-        <View className={ styles.tag_item }>博客</View>
-        <View className={ styles.tag_item }>大数据</View>
+        {
+          titleList.map((item, index) => {
+            return <View 
+                    className={  classnames([styles.tag_item], {[styles.active]: current == index})}
+                    key={item.name}
+                    onClick={() => {setCurrent(index)}}
+                  >{item.name}</View>
+          })
+        }
       </View>
       <View className={ styles.content }>
         {
