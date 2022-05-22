@@ -74,9 +74,11 @@ const My = () => {
           </View>
         </View>
       </View>
-      <View className={ styles.loginout}>
+      {
+        code && <View className={ styles.loginout}>
         <View className={ styles.loginout_button } onClick={loginout}>退出登录</View>
       </View>
+      }
       <AtModal
         isOpened={isOpened}
         title='提示信息'
