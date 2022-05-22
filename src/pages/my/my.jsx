@@ -9,6 +9,7 @@ const My = () => {
   const [userInfo] = useState(Taro.getStorageSync("userInfo"));
   const [code] = useState(Taro.getStorageSync("uctoken"));
   const [isOpened, setIsOpened] = useState(false);
+
   const login = () => {
     Taro.navigateTo({
       url: '/pages/authorize/authorize'
@@ -18,13 +19,19 @@ const My = () => {
   const loginout = () => {
     setIsOpened(true);
   }
+
   const handleConfirm = () => {
     Taro.removeStorageSync("userInfo");
     Taro.removeStorageSync("uctoken");
     Taro.reLaunch({url: '/pages/index/index'});
   }
+
   const handleCancel = () => {
     setIsOpened(false);
+  }
+
+  const goToSetting = () => {
+    Taro.navigateTo({url: '/pages/setting/setting'})
   }
 
   return (
@@ -32,7 +39,7 @@ const My = () => {
       <View className={ styles.my_header }>
         <View className={ styles.my_avatar } ><Image src={userInfo.avatarUrl}/></View>
         <View className={ styles.login } onClick={login}>{code ? userInfo.nickName : "请点击授权登录"}</View>
-        <View className={ styles.setting }><View className="icon iconfont icon-setting-fill"></View></View>
+        <View className={ styles.setting } onClick={ goToSetting }><View className="icon iconfont icon-setting-fill"></View></View>
       </View>
       <View className={ styles.my_header_content }>
           <View>

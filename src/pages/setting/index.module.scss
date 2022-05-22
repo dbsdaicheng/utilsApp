@@ -1,0 +1,32 @@
+.setting {
+  padding: 20rpx 30rpx;
+  .setting_content {
+    background-color: #fff;
+    border-radius: 10rpx;
+    .setting_item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 90rpx;
+      padding: 0 30rpx;
+      line-height: 90rpx;
+      font-size: 28rpx;
+      font-weight: 400;
+      color: #333;
+      font-family: PingFangSC-Regular, PingFang SC;
+      .image {
+        width: 30rpx;
+        height: 30rpx;
+        position: relative;
+        image {
+          width: 100%;
+          height: 100%;
+          vertical-align: middle;
+          position: absolute;
+          left: 0;
+          top: 0;
+        }
+      }
+    }
+  }
+}

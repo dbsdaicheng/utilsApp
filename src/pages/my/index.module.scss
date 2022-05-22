@@ -4,6 +4,18 @@
   padding: 0 30rpx;
   padding-bottom: 200rpx;
   position: relative;
+  :global(.at-modal__header) {
+    &::after {
+      display: none;
+    }
+  }
+  :global(.at-modal__content) {
+    min-height: auto;
+    font-size: 36rpx;
+    text-align: center;
+    padding: 40rpx 0 60rpx;
+    color: #555;
+  }
   .my_header {
     width: 100%;
     display: flex;
